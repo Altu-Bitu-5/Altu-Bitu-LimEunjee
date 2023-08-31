@@ -18,17 +18,19 @@ int numbersum(string serial)
 
 bool cmp(string serial1, string serial2)
 {
-	if (serial1.length() != serial2.length())
+	if (serial1.length() != serial2.length()){
 		return serial1.length() < serial2.length();
-
-	else
-	{
-		if (numbersum(serial1) != numbersum(serial2))
-			return numbersum(serial1) < numbersum(serial2);
-
-		else
-			return serial1 < serial2;
 	}
+
+
+	if (numbersum(serial1) != numbersum(serial2)){
+		return numbersum(serial1) < numbersum(serial2);
+	}
+
+	else{
+		return serial1 < serial2;
+	}
+	
 }
 
 int main()

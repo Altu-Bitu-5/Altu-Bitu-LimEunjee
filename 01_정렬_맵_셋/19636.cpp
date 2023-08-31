@@ -5,8 +5,8 @@ using namespace std;
 
 int nochange(int day, int weight, int basic, int I, int A)
 {
-	for (int i = 0; i < day; i++)
-		weight += (I - (basic + A));
+	
+	weight += (I - (basic + A)) * day;
 
 	if (weight <= 0)
 		cout << "Danger Diet\n";
@@ -20,23 +20,27 @@ int yeschange(int day, int weight, int basic, int I, int A, int T)
 {
 	int basic_orgin = basic;
 
-	for (int i = 0; i < day; i++)
+	while(day--)
 	{
 		weight += (I - (basic + A));
 
-		if (abs(I - (basic + A)) > T)
+		if (abs(I - (basic + A)) > T){
 			basic += floor((I - (basic + A)) / 2.0);
+		}
 	}
 
-	if (weight <= 0 || basic <= 0)
+	if (weight <= 0 || basic <= 0){
 		cout << "Danger Diet\n";
+	}
 	else
 	{
 		cout << weight << " " << basic << " ";
-		if ((basic_orgin - basic) > 0)
+		if ((basic_orgin - basic) > 0){
 			cout << "YOYO";
-		else
+		}
+		else{
 			cout << "NO";
+		}
 	}
 
 	return 0;
